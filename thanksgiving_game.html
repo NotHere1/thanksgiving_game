@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1'>
+<title>感恩节快乐！</title>
+
+<style type="text/css">  
+
+	.flip {
+	    -webkit-backface-visibility:hidden;
+	    -webkit-transform:translateX(0); 
+	    -moz-backface-visibility:hidden;
+	    -moz-transform:translateX(0);
+	}
+	.flip.out {
+	    -webkit-transform: rotateY(-90deg) scale(.9);
+	    -webkit-animation-name: flipouttoleft;
+	    -webkit-animation-duration: 175ms;
+	    -moz-transform: rotateY(-90deg) scale(.9);
+	    -moz-animation-name: flipouttoleft;
+	    -moz-animation-duration: 200ms;
+	}
+	.flip.in {
+	    -webkit-animation-name: flipintoright;
+	    -webkit-animation-duration: 225ms;
+	    -moz-animation-name: flipintoright;
+	    -moz-animation-duration: 300ms;
+	}
+	.flip.out.reverse {
+	    -webkit-transform: rotateY(90deg) scale(.9);
+	    -webkit-animation-name: flipouttoright;
+	    -moz-transform: rotateY(90deg) scale(.9);
+	    -moz-animation-name: flipouttoright;
+	}
+	.flip.in.reverse {
+	    -webkit-animation-name: flipintoleft;
+	    -moz-animation-name: flipintoleft;
+	}
+	@-webkit-keyframes flipouttoleft {
+	    from { -webkit-transform: rotateY(0); }
+	    to { -webkit-transform: rotateY(-90deg) scale(.9); }
+	}
+	@-moz-keyframes flipouttoleft {
+	    from { -moz-transform: rotateY(0); }
+	    to { -moz-transform: rotateY(-90deg) scale(.9); }
+	}
+	@-webkit-keyframes flipouttoright {
+	    from { -webkit-transform: rotateY(0) ; }
+	    to { -webkit-transform: rotateY(90deg) scale(.9); }
+	}
+	@-moz-keyframes flipouttoright {
+	    from { -moz-transform: rotateY(0); }
+	    to { -moz-transform: rotateY(90deg) scale(.9); }
+	}
+	@-webkit-keyframes flipintoleft {
+	    from { -webkit-transform: rotateY(-90deg) scale(.9); }
+	    to { -webkit-transform: rotateY(0); }
+	}
+	@-moz-keyframes flipintoleft {
+	    from { -moz-transform: rotateY(-90deg) scale(.9); }
+	    to { -moz-transform: rotateY(0); }
+	}
+	@-webkit-keyframes flipintoright {
+	    from { -webkit-transform: rotateY(90deg) scale(.9); }
+	    to { -webkit-transform: rotateY(0); }
+	}
+	@-moz-keyframes flipintoright {
+	    from { -moz-transform: rotateY(90deg) scale(.9); }
+	    to { -moz-transform: rotateY(0); }
+	}
+
+
+	td {
+		text-align:center;
+		vertical-align: middle;
+		border: 1px solid black;
+	}
+	#landing_page {
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:100%;
+		background-color: rgba(0,0,0,0.9);
+		z-index:9999;
+		!display:none;
+	}
+	#landing_page_2 {
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:100%;
+		background-color: rgba(0,0,0,0.9);
+		display:none;
+		z-index:9999;
+	}
+	#landing_page_3 {
+		position:absolute;
+		top:0px;
+		left:0px;
+		width:100%;
+		height:100%;
+		background-color: rgba(0,0,0,0.9);
+		display:none;
+		z-index:9999;
+	}
+	#landing_page_text {
+		color:white;
+		text-align:center;
+		vertical-align: middle;
+	}
+	input {
+		font-size: 1.4em;
+		padding:2px;
+	}
+	.bold-text {
+		font-weight: bold;
+	}
+	td > div > img {
+		width:100%;
+		height:auto;	
+	}
+	.page2 {
+		display:none;	
+	}
+	.page1 {
+		display:visible;
+	}
+</style>
+
+</head>
+<body style="width:100%; margin:0 auto;">
+
+	<div id="landing_page">
+		<div id="landing_page_text">
+			<br>
+			<img src="image/landing_page.gif">
+			<h1>爱聚感恩节游戏</h1>
+			<h2>考考你记忆有多好。</h2>
+			<h3 class="bold-text">看看你能在<em>7秒内记下3张不同火鸡图排序吗？</em></h3>
+		</div>
+		<div style="position:absolute;bottom:0px;width:100%;">
+			<input style="margin:0 auto;" id="about" type="button" value="关于我们">
+			<input style="margin:0 auto;" id="show_aiju" type="button" value="爱聚祝福">
+			<input style="margin:0 auto;" id="start_game_button" type="button" value="开始游戏">
+		</div>
+	</div>
+	
+	<div id="landing_page_2">
+		<div id="landing_page_text">
+			<br>
+			<img src="image/landing_page_2.gif">
+			<h1>爱聚感恩节游戏</h1>
+			<h2 class="bold-text">看看你能在<em>25秒内记下7张火鸡图的排序吗</em>？</h2>
+		</div>
+		<div style="position:absolute;bottom:0px;width:100%;">
+			<input style="margin:0 auto;" id="next_stage_button" type="button" value="开始下一关">
+		</div>
+	</div>
+	
+	<div id="landing_page_3">
+		<div id="landing_page_text">
+			<br>
+			<img src="image/aijulogo.png">
+			<h1>爱聚感恩节游戏</h1>
+			<h4 class="bold-text">Developer: <em>Jusan Ng</em></h4>
+			<h4 class="bold-text">Graphic-Design: <em>Iris Xing</em></h4>
+			<h4 class="bold-text">Game-Design:</h4><div><h4><em>Jusan Ng</em><span style="display:block;">Jujing Ng</span></h4></div>
+			<h5 class="bold-text">微信号: <em>love_meetup</em></h5>
+		</div>
+		<div style="position:absolute;bottom:0px;width:100%;">
+			<input style="margin:0 auto;" id="landing_page_3_back" type="button" value="返回">
+		</div>
+	</div>
+
+	<div style="width:100%;height: 100vh;" id="selection_table">
+		<table style="width:100%;height:100%;border-collapse: collapse;">
+			<tr style="height:33.33%;">
+				<td id="b1">
+						<div class="page1"><img src="image/C0.png"></div>
+						<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+				<td id="b2">
+					<div class="page1"><img src="image/C1.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+				<td id="b3">
+					<div class="page1"><img src="image/C2.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+			</tr>
+			<tr style="height:33.33%;">
+				<td id="b4">
+					<div class="page1"><img src="image/C3.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+				<td id="b5">
+					<div class="page1"><img src="image/C4.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+				<td id="b6">					
+					<div class="page1"><img src="image/C5.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+			</tr>
+			<tr style="height:33.33%;">
+				<td id="b7">
+					<div class="page1"><img src="image/C6.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+				<td id="b8">
+					<div class="page1"><img src="image/C7.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+				<td id="b9">
+					<div class="page1"><img src="image/C8.png"></div>
+					<div class="page2"><img src="image/aijulogo.png"></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script type="text/javascript">
+	
+	var b1_picture = 0;
+	var b2_picture = 0;
+	var b3_picture = 0;
+	var b4_picture = 0;
+	var b5_picture = 0;
+	var b6_picture = 0;
+	var b7_picture = 0;
+	var b8_picture = 0;
+	var b9_picture = 0;
+	
+	var game_positions;
+	var game_answers = {};
+	var timer_list = {};
+	var win1 = false;
+	var win2 = false;
+	var button_5_back = false;
+	
+	var img_list2 = [
+	                "image/C0.png","image/C1.png","image/C2.png",
+	                "image/C3.png","image/C4.png","image/C5.png",
+	                "image/C6.png","image/C7.png","image/C8.png",
+	                "image/aijulogo.png"
+	];
+	
+	$(document).ready(function() {
+		
+		// start game listener
+		$("#start_game_button").on("click", function(){
+			start_game();	
+		});
+		
+		$("#show_aiju").on("click", function(){
+			reset_all_image();
+			go_to_show();	
+		});
+		
+		$("#next_stage_button").on("click", function() {
+			start_next_stage();
+		});
+		
+		$("#about").on("click", function(){
+			$("#landing_page").hide("clip", "slow");
+			go_to_about();
+		});
+		
+		$("#landing_page_3_back").on("click", function() {
+			$("#landing_page_3").hide("clip", "slow");
+			$("#landing_page").show("slide", "slow");
+		});
+		
+		function go_to_about() {
+			$("#landing_page_3").show("fade", "slow");
+		}
+		
+		function start_next_stage() {
+			$("#landing_page_2").hide("clip", "slow");
+			game_positions = ["1","3","4","5","6","7","9"];
+			
+			run_game();
+		}
+		
+		function go_to_show() {
+			$("#landing_page").hide("clip", "slow");
+			thankgiving_aiju();
+		}
+		
+		function start_game() {
+			$("#landing_page").hide("clip", "slow");
+			game_positions = ["4","5","6"];
+			run_game();
+		}
+			
+		function run_game() {
+			
+			var img_list = [
+			                "image/C0.png","image/C1.png","image/C2.png",
+			                "image/C3.png","image/C4.png","image/C5.png",
+			                "image/C6.png","image/C7.png","image/C8.png"
+			];
+			game_answers = randomize_image_in_positions(game_positions, img_list)
+			
+			if (win1 == false) {
+			
+				blank_out_positions(["1","2","3","7","8","9"]);
+				disable_all_listeners();
+				set_image(2,"remember")
+				build_countdown_timer(8,7,20,img_list);
+			}
+			else {
+
+				disable_all_listeners();
+				set_image(2,"remember")
+				build_countdown_timer(8,25,60,img_list);
+			}
+		}
+
+		function build_countdown_timer(position, remember_time, selection_time, img_list) {
+				var i = remember_time;
+				
+				timer_list['countdown_interval'] = setInterval(function(){
+					
+					if (i == 0) {
+						clearInterval(timer_list['countdown_interval']);
+						set_image(2,"randomize");
+						timer_list["randomize_interval"] = setInterval(function(){
+							randomize_image_in_positions(game_positions, img_list)
+						},500);
+											
+						setTimeout(function() {
+							clearInterval(timer_list['randomize_interval']);
+							set_image(2,"answer");
+							enable_specific_listeners(game_positions);
+						
+							i = selection_time;
+							timer_list['selection_interval'] = setInterval(function(){
+								
+								set_image(position, i)
+								
+								if (i == 0) {
+									clearInterval(timer_list['selection_interval']);
+									set_image(2,"lose");
+									disable_all_listeners();
+									set_image_to_answer();
+									set_image(8,"again");
+									enable_specific_listeners(["8"]);
+								}
+															
+								i--;
+							},1000);
+				
+						},5000);
+						
+					}
+					set_image(position,i);
+					i--;
+					
+				},1000);	
+		}
+		
+		
+		function thankgiving_aiju() {
+			
+			
+			disable_all_listeners();
+			
+			setTimeout(function() {
+			
+				var aiju_congrat = ["a","a","b","c","d","e","f","g","h","i"];
+				var i = 0;
+				
+				timer_list['aiju_thx_interval'] = setInterval(function(){
+			
+					if (i > 10) {
+						clearInterval(timer_list['aiju_thx_interval']);
+					
+						
+						set_image(5, "aijulogo");
+						set_image(2, "C0");
+						set_image(4, "C2");
+						set_image(6, "C4");
+						set_image(8, "C6");
+						set_image(1, "e");
+						set_image(3, "f");
+						set_image(7, "h");
+						set_image(9, "i");
+						
+						timer_list["aiju_special_interval"] = setInterval(function() {
+							move_specific_positions_in_sequence(["2","6","8","4"]);
+						}, 1000);
+						
+						setTimeout(function() {
+							set_image(5, "back");
+							enable_specific_listeners(["5"]);
+							button_5_back = true;
+						}, 4500);
+					
+					}
+					else {
+						set_image(i,aiju_congrat[i]);
+
+					}
+					i++;
+					
+				},500);
+				
+			},250);
+		}
+		
+		function reset_all_image() {
+			set_image(1,"C0");
+			set_image(2,"C1");
+			set_image(3,"C2");
+			set_image(4,"C3");
+			set_image(5,"C4");
+			set_image(6,"C5");
+			set_image(7,"C6");
+			set_image(8,"C7");
+			set_image(9,"C8");
+		}
+		
+		function reset_game() {
+			var b1_picture = 0;
+			var b2_picture = 0;
+			var b3_picture = 0;
+			var b4_picture = 0;
+			var b5_picture = 0;
+			var b6_picture = 0;
+			var b7_picture = 0;
+			var b8_picture = 0;
+			var b9_picture = 0;
+			all_to_specific_page(1);
+			reset_all_image();
+			game_answers = {};
+			timer_list = {};
+			button_5_back = false;
+		}
+		
+		function reset_total_game() {
+			var b1_picture = 0;
+			var b2_picture = 0;
+			var b3_picture = 0;
+			var b4_picture = 0;
+			var b5_picture = 0;
+			var b6_picture = 0;
+			var b7_picture = 0;
+			var b8_picture = 0;
+			var b9_picture = 0;
+			all_to_specific_page(1);
+			reset_all_image();
+			game_answers = {};
+			timer_list = {};
+			win1 = false;
+			win2 = false;
+		}
+		
+		function set_image(position,image_name) {
+			var page1 = $('#b' + position + '> .page1');
+		    var page2 = $('#b' + position + '> .page2');
+		    var toHide = page1.is(':visible') ? page1 : page2;
+		    var toShow = page2.is(':visible') ? page1 : page2;
+		    
+		    toShow.children().attr("src","image/" + image_name + ".png");
+		    toHide.removeClass('flip in').addClass('flip out').hide();
+		    toShow.removeClass('flip out').addClass('flip in').show();	
+		}
+		
+		function check_answer() {
+			var i;
+			for(i = 0; i < game_positions.length; i++){
+				var page1 = $('#b' + game_positions[i] + '> .page1');
+			    var page2 = $('#b' + game_positions[i] + '> .page2');
+			    var page = page1.is(':visible') ? page1 : page2;
+			    
+				var selection = page.children().attr('src');
+				if (!(selection == game_answers[i])) {
+					return false;
+				}
+			}
+			return true
+		}
+		
+		function set_image_to_answer() {
+			var i;
+			for (i = 0; i < Object.keys(game_answers).length; i++){
+				var page1 = $('#b' + game_positions[i] + '> .page1');
+			    var page2 = $('#b' + game_positions[i] + '> .page2');
+			    var page = page1.is(':visible') ? page1 : page2;
+			    page.children().attr('src',game_answers[i]);
+			}
+		}
+		
+		function randomize_move(n,img_list) {
+			var positions = generate_randomize_positions(n);
+			var i;
+			for(i = 0; i < positions.length; i++) {
+				$(positions[i] + '> .page1').children().attr('src', img_list[i]);
+			}			
+		}
+		
+		function randomize_image_in_positions(positions, img_list) {
+			var answers = {};
+			var i;
+			for (i = 0; i < positions.length; i++){
+				
+				var page1 = $('#b' + positions[i] + '> .page1');
+			    var page2 = $('#b' + positions[i] + '> .page2');
+			    var page = page1.is(':visible') ? page1 : page2;
+				
+			    var drawn = Math.floor(img_list.length * Math.random());
+				page.children().attr('src', img_list[drawn]);
+				answers[i] = img_list[drawn];
+			}		
+			
+			return answers;
+		}
+		
+		function swap_img_src(a,b) {
+			
+			var a_page1 = $('#b' + a + '> .page1');
+		    var a_page2 = $('#b' + a + '> .page2');
+		    var a_page = a_page1.is(':visible') ? a_page1 : a_page2;
+			
+		    var b_page1 = $('#b' + b + '> .page1');
+		    var b_page2 = $('#b' + b + '> .page2');
+		    var b_page = b_page1.is(':visible') ? b_page1 : b_page2;
+			
+			var a_temp = $(a_page).children().attr('src');
+			$(a_page).children().attr('src', $(b_page).children().attr('src')); 
+			$(b_page).children().attr('src', a_temp);
+		}
+	
+		function move_specific_positions_in_sequence(arr) {			
+			var head = 0;
+			var position = head;
+			var tail = arr.length-1;
+			
+			for (;position<tail;position++) {
+				swap_img_src(arr[position], arr[tail]);
+			}
+		}
+		
+		function generate_a_random_sequence(n, img_list) {					
+			var out_arr = [];
+
+			if (n >= img_list.length || n < 1) {
+				throw "error input";
+			}
+			var i = n
+			while (i >= 1) {	
+				var idx = Math.floor(img_list.length * Math.random());
+				var drawn = img_list.splice(idx, 1); // pop ele in img_list[idx] and add to drawn
+				out_arr.push(drawn[0]);
+				i--;
+			}
+			if (out_arr.length != n) {
+				throw "error output";
+			}
+			return out_arr;
+		}
+		
+		function generate_randomize_positions(n) {
+			
+			if (n == 9) {
+				var pool = ["#b1","#b2","#b3","#b4","#b5","#b6","#b7","#b8","#b9"];	
+			}
+			else if (n == 5) {
+				var pool = ["#b2","#b4","#b5","#b6","#b8"];
+			}
+			else if (n == 4) {
+				var pool = ["#b1","#b3","#b7","#b9"];
+			}
+			else if (n == 3) {
+				var pool = ["#b4","#b5","#b6"];
+			}
+			
+			var out_arr = [];
+
+			var i = pool.length;
+			while (i >= 1) {	
+				var idx = Math.floor(pool.length * Math.random());
+				var drawn = pool.splice(idx, 1); // pop ele in pool[idx] and add to drawn
+				out_arr.push(drawn[0]);
+				i--;
+			}
+			return out_arr;
+		}
+		
+		function all_to_specific_page(page_num) {
+			var position;
+			if (page_num == "1") {
+				for (position=0;position<10;position++) {
+					var page1 = $('#b' + position + '> .page1');
+				    var page2 = $('#b' + position + '> .page2');
+				    var page1_active = page1.is(':visible') ? true : false;
+				    
+				    if (!page1_active) {
+				    	page2.removeClass('flip in').hide();
+					    page1.removeClass('flip out').show();
+				    }
+				}	
+			}
+			else if (page_num == "2") {
+				for (position=0;position<10;position++) {
+					var page1 = $('#b' + position + '> .page1');
+				    var page2 = $('#b' + position + '> .page2');
+				    var page2_active = page2.is(':visible') ? true : false;
+				    
+				    if (!page2_active) {
+				    	page1.removeClass('flip in').hide();
+					    page2.removeClass('flip out').show();
+				    }
+				}
+			}
+		}
+		
+		function blank_out_positions(arr) {
+			var position;
+			for (position=0;position<arr.length;position++) {
+				$('#b' + arr[position] + '> .page1').children().attr('src', 'image/blank.png');
+				$('#b' + arr[position] + '> .page2').children().attr('src', 'image/blank.png');
+			}
+		}
+		
+		function disable_all_listeners() {
+			var position;
+			for (position=1;position<10;position++)
+				$("#b" + position).prop("disabled", true);
+		}
+		
+		function enable_all_listeners() {
+			var position;
+			for (position=1;position<10;position++)
+				$("#b" + position).prop("disabled", false);
+		}
+		
+		function disable_specific_listeners(arr) {
+			var position;
+			for (position=0;position<arr.length;position++)
+				$("#b" + arr[position]).prop("disabled", true);
+		}
+		
+		function enable_specific_listeners(arr) {
+			var position;
+			for (position=0;position<arr.length;position++)
+				$("#b" + arr[position]).prop("disabled", false);
+		}
+		
+		function perform_check_answer() {
+			if(check_answer()){
+				
+				if (win1 == false) {
+					clearInterval(timer_list['selection_interval']);
+			    	disable_all_listeners();
+			    	set_image(2,"correct");
+			    	set_image(8,"next");
+			    	enable_specific_listeners(["8"]);
+			    	win1 = true;
+				}
+				else if (win1 == true && win2 == false) {
+					clearInterval(timer_list['selection_interval']);
+			    	disable_all_listeners();
+			    	set_image(2,"correct");
+			    	set_image(8,"win");
+			    	win2 = true;					
+				}
+
+		    }
+		    else {
+		    	set_image(2,"wrong");
+		    }
+		}
+		
+		function to_stage_2_landing() {
+			reset_game();
+			$("#landing_page_2").show("slide","slow");
+		}
+		
+		function to_stage_1_landing() {
+			reset_game();
+			$("#landing_page").show("slide", "slow");
+		}
+		
+		// click listeners
+		$("#b1").on("vclick", function(e) {	
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				var page1 = $('#b1 > .page1');
+			    var page2 = $('#b1 > .page2');
+			    var toHide = page1.is(':visible') ? page1 : page2;
+			    var toShow = page2.is(':visible') ? page1 : page2;
+			    
+			    var len = img_list2.length;
+			    toShow.children().attr("src",img_list2[++b1_picture%len]);
+			    toHide.removeClass('flip in').addClass('flip out').hide();
+			    toShow.removeClass('flip out').addClass('flip in').show();	
+			    
+			    perform_check_answer();
+			}
+		});
+
+		$("#b2").on("click", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				var page1 = $('#b2 > .page1');
+			    var page2 = $('#b2 > .page2');
+			    var toHide = page1.is(':visible') ? page1 : page2;
+			    var toShow = page2.is(':visible') ? page1 : page2;
+			    
+			    var len = img_list2.length;
+			    toShow.children().attr("src",img_list2[++b2_picture%len]);
+			    toHide.removeClass('flip in').addClass('flip out').hide();
+			    toShow.removeClass('flip out').addClass('flip in').show();	
+			}
+		});
+		
+		$("#b3").on("vclick", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				var page1 = $('#b3 > .page1');
+			    var page2 = $('#b3 > .page2');
+			    var toHide = page1.is(':visible') ? page1 : page2;
+			    var toShow = page2.is(':visible') ? page1 : page2;
+			    
+			    var len = img_list2.length;
+			    toShow.children().attr("src",img_list2[++b3_picture%len]);
+			    toHide.removeClass('flip in').addClass('flip out').hide();
+			    toShow.removeClass('flip out').addClass('flip in').show();
+			    
+			    perform_check_answer();
+			}
+		});
+
+		$("#b4").on("vclick", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				var page1 = $('#b4 > .page1');
+			    var page2 = $('#b4 > .page2');
+			    var toHide = page1.is(':visible') ? page1 : page2;
+			    var toShow = page2.is(':visible') ? page1 : page2;
+			    
+			    var len = img_list2.length;
+			    toShow.children().attr("src",img_list2[++b4_picture%len]);
+			    toHide.removeClass('flip in').addClass('flip out').hide();
+			    toShow.removeClass('flip out').addClass('flip in').show();	
+			
+				perform_check_answer();
+			    	
+			}
+		});
+		
+		$("#b5").on("vclick", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				
+				if (button_5_back) {
+					clearInterval(timer_list["aiju_special_interval"]);
+					disable_all_listeners();
+					to_stage_1_landing();
+				}
+				else {
+					var page1 = $('#b5 > .page1');
+				    var page2 = $('#b5 > .page2');
+				    var toHide = page1.is(':visible') ? page1 : page2;
+				    var toShow = page2.is(':visible') ? page1 : page2;
+				    
+				    var len = img_list2.length;
+				    toShow.children().attr("src",img_list2[++b5_picture%len]);
+				    toHide.removeClass('flip in').addClass('flip out').hide();
+				    toShow.removeClass('flip out').addClass('flip in').show();	
+			
+				    perform_check_answer();	
+				}
+			}
+		});
+
+		$("#b6").on("vclick", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				var page1 = $('#b6 > .page1');
+			    var page2 = $('#b6 > .page2');
+			    var toHide = page1.is(':visible') ? page1 : page2;
+			    var toShow = page2.is(':visible') ? page1 : page2;
+			    
+			    var len = img_list2.length;
+			    toShow.children().attr("src",img_list2[++b6_picture%len]);
+			    toHide.removeClass('flip in').addClass('flip out').hide();
+			    toShow.removeClass('flip out').addClass('flip in').show();
+			    
+			    perform_check_answer();
+			}
+		});
+		
+		$("#b7").on("vclick", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				var page1 = $('#b7 > .page1');
+			    var page2 = $('#b7 > .page2');
+			    var toHide = page1.is(':visible') ? page1 : page2;
+			    var toShow = page2.is(':visible') ? page1 : page2;
+			    
+			    var len = img_list2.length;
+			    toShow.children().attr("src",img_list2[++b7_picture%len]);
+			    toHide.removeClass('flip in').addClass('flip out').hide();
+			    toShow.removeClass('flip out').addClass('flip in').show();
+			    
+			    perform_check_answer();
+			}
+		});
+
+		$("#b8").on("vclick", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				
+			    if (win1)
+			    	to_stage_2_landing();
+			    else {
+			    	to_stage_1_landing();
+			    }
+			    	
+			}
+		});
+		
+		$("#b9").on("vclick", function(e) {
+			e.preventDefault();
+		    e.stopImmediatePropagation();
+			if (!$(this).is(":disabled")) {
+				var page1 = $('#b9 > .page1');
+			    var page2 = $('#b9 > .page2');
+			    var toHide = page1.is(':visible') ? page1 : page2;
+			    var toShow = page2.is(':visible') ? page1 : page2;
+			    
+			    var len = img_list2.length;
+			    toShow.children().attr("src",img_list2[++b9_picture%len]);
+			    toHide.removeClass('flip in').addClass('flip out').hide();
+			    toShow.removeClass('flip out').addClass('flip in').show();	
+			
+			    perform_check_answer();
+			}
+		});
+		
+	});
+
+	
+	
+	
+	
+	
+	
+	var imgUrl = 'https://s3.amazonaws.com/aiju-thanksgiving-game/image/C0.png';
+	var lineLink = 'https://s3.amazonaws.com/aiju-thanksgiving-game/thanksgiving_game.html';
+	var descContent = "用火鸡测试你的记忆力有多好";
+	var shareTitle = '【爱聚】记忆力游戏';
+
+	function shareFriend() {
+	    WeixinJSBridge.invoke('sendAppMessage',{
+	                            "img_url": imgUrl,
+	                            "img_width": "640",
+	                            "img_height": "640",
+	                            "link": lineLink,
+	                            "desc": descContent,
+	                            "title": shareTitle
+	                            }, function(res) {
+	                            _report('send_msg', res.err_msg);
+	                            })
+	}
+	function shareTimeline() {
+	    WeixinJSBridge.invoke('shareTimeline',{
+	                            "img_url": imgUrl,
+	                            "img_width": "640",
+	                            "img_height": "640",
+	                            "link": lineLink,
+	                            "desc": descContent,
+	                            "title": shareTitle
+	                            }, function(res) {
+	                            _report('timeline', res.err_msg);
+	                            });
+	}
+	function shareWeibo() {
+	    WeixinJSBridge.invoke('shareWeibo',{
+	                            "content": descContent,
+	                            "url": lineLink,
+	                            }, function(res) {
+	                            _report('weibo', res.err_msg);
+	                            });
+	}
+	// WeChat browser will initial by above function and trigger WeixinJSBridgeReady event.
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+	        // share to friend
+	        WeixinJSBridge.on('menu:share:appmessage', function(argv){
+	            shareFriend();
+	            });
+
+	        // share to timeline
+	        WeixinJSBridge.on('menu:share:timeline', function(argv){
+	            shareTimeline();
+	            });
+
+	        // share to weibo
+	        WeixinJSBridge.on('menu:share:weibo', function(argv){
+	            shareWeibo();
+	            });
+	        }, false);
+
+	
+	
+	
+	
+</script>
+
+</html>
